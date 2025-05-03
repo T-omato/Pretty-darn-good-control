@@ -112,35 +112,35 @@ reproducibility and errors I encountered:
 
 Before running renv::restore() for the first time:
 
-	1. Install Python 3.10 from the official Python site.
+  1. Install Python 3.10 from the official Python site.
 	
-	2. Tell R to use Python 3.10 by setting the environment variable in your .Rprofile:
-		" Sys.setenv(RETICULATE_PYTHON = "C:/Path/To/Python310/python.exe") "
+  2. Tell R to use Python 3.10 by setting the environment variable in your .Rprofile:
+    " Sys.setenv(RETICULATE_PYTHON = "C:/Path/To/Python310/python.exe") "
 		
-	3. Then run:
-		" renv::restore() "
+  3. Then run:
+    " renv::restore() "
 		
 If you've already run renv::restore() and it used a different Python version (e.g., Python 3.13):
 
-	1. Delete the incorrectly created virtual environment, using Bash:
-		" rm -rf renv/python/virtualenvs "
+  1. Delete the incorrectly created virtual environment, using Bash:
+    " rm -rf renv/python/virtualenvs "
 		
-	2. Ensure Python 3.10 is active and repeat the steps above.
+  2. Ensure Python 3.10 is active and repeat the steps above.
 	
 ### Modify Incompatible CUDA/cuDNN Requirements
 
 The environment file may request a CUDA/cuDNN version that is no longer available from PyPI.
 To resolve this:
 
-	1. Open the auto-generated requirements.txt file inside the renv directory.
+  1. Open the auto-generated requirements.txt file inside the renv directory.
 	
-	2. Find the line:
-		nvidia-cudnn-cu11==8.5.0.96
+  2. Find the line:
+    nvidia-cudnn-cu11==8.5.0.96
 		
-	3. Check compatibility referring to the official TensorFlow GPU support matrix, https://www.tensorflow.org/install/source#gpu
+  3. Check compatibility referring to the official TensorFlow GPU support matrix, https://www.tensorflow.org/install/source#gpu
 	
-	4. Change version requirement:
-		nvidia-cudnn-cu11==8.9.5.29 (as of 03/05/2025 dd/mm/yyyy)
+  4. Change version requirement:
+    nvidia-cudnn-cu11==8.9.5.29 (as of 03/05/2025 dd/mm/yyyy)
 
 ### Enable Long Path Support (for TensorFlow installs)
 
@@ -151,12 +151,12 @@ system does not have Windows Long Path support enabled. You can find information
 
 You will need to enable long file path support on Windows:
 
-	1. Press `Win+R`, type `regedit`, and press enter.
+  1. Press `Win+R`, type `regedit`, and press enter.
 	
-	2. Navigate to:
-		HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem
+  2. Navigate to:
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem
 		
-	3. Find `LongPathsEnabled`, double click it, and change the value 0 --> 1.
+  3. Find `LongPathsEnabled`, double click it, and change the value 0 --> 1.
 	
-	4. Restart the computer to apply the change. 
+  4. Restart the computer to apply the change. 
 	
