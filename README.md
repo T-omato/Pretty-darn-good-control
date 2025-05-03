@@ -131,23 +131,32 @@ If you've already run renv::restore() and it used a different Python version (e.
 
 The environment file may request a CUDA/cuDNN version that is no longer available from PyPI.
 To resolve this:
+
 	1. Open the auto-generated requirements.txt file inside the renv directory.
+	
 	2. Find the line:
 		nvidia-cudnn-cu11==8.5.0.96
+		
 	3. Check compatibility referring to the official TensorFlow GPU support matrix, https://www.tensorflow.org/install/source#gpu
+	
 	4. Change version requirement:
 		nvidia-cudnn-cu11==8.9.5.29 (as of 03/05/2025 dd/mm/yyyy)
 
 ### Enable Long Path Support (for TensorFlow installs)
 
 During installation if you receive a long-path error like:
+
 OSError: [Errno 2] No such file or directory: .../tensorflow/... .cpp.inc HINT: This error might have occurred since this 
 system does not have Windows Long Path support enabled. You can find information on how to enable this at https://pip.pypa.io/warnings/enable-long-paths 
 
 You will need to enable long file path support on Windows:
+
 	1. Press `Win+R`, type `regedit`, and press enter.
+	
 	2. Navigate to:
 		HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem
+		
 	3. Find `LongPathsEnabled`, double click it, and change the value 0 --> 1.
+	
 	4. Restart the computer to apply the change. 
 	
