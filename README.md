@@ -116,17 +116,17 @@ Before running `renv::restore()` for the first time:
 	
   2. Tell R to use Python 3.10 by setting the environment variable in your .Rprofile:
   
-    ```Sys.setenv(RETICULATE_PYTHON = "C:/Path/To/Python310/python.exe")```
+    `Sys.setenv(RETICULATE_PYTHON = "C:/Path/To/Python310/python.exe")`
 		
   3. Then run:
   
-    ```renv::restore()```
+    `renv::restore()`
 		
 If you've already run `renv::restore()` and it used a different Python version (e.g., Python 3.13):
 
   1. Delete the incorrectly created virtual environment, using Bash:
   
-    ```" rm -rf renv/python/virtualenvs "```
+    `rm -rf renv/python/virtualenvs`
 		
   2. Ensure Python 3.10 is active and repeat the steps above.
 	
